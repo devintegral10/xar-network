@@ -3,12 +3,10 @@ module github.com/xar-network/xar-network
 go 1.13
 
 require (
-	github.com/99designs/keyring v1.1.3
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
 	github.com/btcsuite/btcd v0.0.0-20190115013929-ed77733ec07d
 	github.com/cosmos/cosmos-sdk v0.34.4-0.20191114141721-d4c831e63ad3
-	github.com/cosmos/modules/incubator/nft v0.0.0-20191031141754-76e462805729
 	github.com/go-kit/kit v0.9.0
 	github.com/gobuffalo/packr v1.30.1
 	github.com/gorilla/mux v1.7.3
@@ -21,6 +19,7 @@ require (
 	github.com/rs/cors v1.7.0
 	github.com/snikch/goodman v0.0.0-20171125024755-10e37e294daa
 	github.com/spf13/cobra v0.0.5
+	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.5.0
 	github.com/stretchr/testify v1.4.0
 	github.com/tendermint/go-amino v0.15.1
