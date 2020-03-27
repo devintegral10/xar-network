@@ -286,7 +286,7 @@ func NewXarApp(
 		AddRoute(params.RouterKey, params.NewParamChangeProposalHandler(app.paramsKeeper)).
 		AddRoute(distr.RouterKey, distr.NewCommunityPoolSpendProposalHandler(app.distrKeeper))
 	app.govKeeper = gov.NewKeeper(app.cdc, keys[gov.StoreKey], govSubspace,
-		app.supplyKeeper, &stakingKeeper, gov.DefaultCodespace, govRouter)
+		app.supplyKeeper, app.governorsKeeper.AsGovAdapter(), gov.DefaultCodespace, govRouter)
 
 	// register the xar hooks
 	// NOTE: stakingKeeper above is passed by reference, so that it will contain these hooks
