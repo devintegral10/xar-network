@@ -1,8 +1,8 @@
 package nft_test
 
 import (
-	"testing"
 	"encoding/json"
+	"testing"
 
 	"github.com/stretchr/testify/require"
 
