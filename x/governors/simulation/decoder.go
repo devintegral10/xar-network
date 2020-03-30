@@ -3,10 +3,10 @@ package simulation
 import (
 	"bytes"
 	"fmt"
-	cmn "github.com/tendermint/tendermint/libs/common"
-	"github.com/xar-network/xar-network/x/bonds"
 
 	"github.com/cosmos/cosmos-sdk/codec"
+	cmn "github.com/tendermint/tendermint/libs/common"
+	"github.com/xar-network/xar-network/x/bonds"
 )
 
 // DecodeStore unmarshals the KVPair's Value to the corresponding type

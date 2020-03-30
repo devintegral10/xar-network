@@ -4,16 +4,15 @@ package simulation
 
 import (
 	"fmt"
-	"github.com/xar-network/xar-network/x/bonds"
-	"github.com/xar-network/xar-network/x/governors/types"
 	"math/rand"
 	"time"
 
 	"github.com/cosmos/cosmos-sdk/codec"
-
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/xar-network/xar-network/x/bonds"
+	"github.com/xar-network/xar-network/x/governors/types"
 )
 
 // Simulation parameter constants

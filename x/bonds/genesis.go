@@ -2,10 +2,10 @@ package bonds
 
 import (
 	"fmt"
-	"github.com/xar-network/xar-network/x/bonds/keeper"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/xar-network/xar-network/x/bonds/keeper"
 	"github.com/xar-network/xar-network/x/bonds/types"
 )
 

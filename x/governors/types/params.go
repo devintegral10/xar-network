@@ -2,11 +2,12 @@ package types
 
 import (
 	"bytes"
+	"time"
+
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/params"
 	"github.com/xar-network/xar-network/x/bonds"
-	"time"
 )
 
 const (

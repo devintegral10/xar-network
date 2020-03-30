@@ -4,10 +4,10 @@ package simulation
 
 import (
 	"fmt"
-	"github.com/xar-network/xar-network/x/governors/types"
 	"math/rand"
 
 	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/xar-network/xar-network/x/governors/types"
 )
 
 const (

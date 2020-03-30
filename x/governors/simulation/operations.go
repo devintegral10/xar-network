@@ -3,14 +3,14 @@ package simulation
 import (
 	"errors"
 	"fmt"
-	"github.com/xar-network/xar-network/x/governors/keeper"
-	"github.com/xar-network/xar-network/x/governors/types"
 	"math/rand"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/simapp/helpers"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
+	"github.com/xar-network/xar-network/x/governors/keeper"
+	"github.com/xar-network/xar-network/x/governors/types"
 )
 
 // SimulateMsgBond generates a MsgBond with random values

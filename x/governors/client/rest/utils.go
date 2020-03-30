@@ -2,7 +2,6 @@ package rest
 
 import (
 	"fmt"
-	"github.com/xar-network/xar-network/x/bonds"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -11,6 +10,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/rest"
 	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
+	"github.com/xar-network/xar-network/x/bonds"
 )
 
 // contains checks if the a given query contains one of the tx types

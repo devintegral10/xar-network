@@ -2,9 +2,6 @@ package governors
 
 import (
 	"encoding/json"
-	"github.com/xar-network/xar-network/x/bonds"
-	"github.com/xar-network/xar-network/x/governors/keeper"
-	"github.com/xar-network/xar-network/x/governors/types"
 	"math/rand"
 
 	"github.com/cosmos/cosmos-sdk/client/context"
@@ -15,9 +12,12 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
+	"github.com/xar-network/xar-network/x/bonds"
 	"github.com/xar-network/xar-network/x/governors/client/cli"
 	"github.com/xar-network/xar-network/x/governors/client/rest"
+	"github.com/xar-network/xar-network/x/governors/keeper"
 	"github.com/xar-network/xar-network/x/governors/simulation"
+	"github.com/xar-network/xar-network/x/governors/types"
 )
 
 var (

@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"fmt"
+
 	abci "github.com/tendermint/tendermint/abci/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"

@@ -2,11 +2,11 @@ package governors
 
 import (
 	"fmt"
-	"github.com/xar-network/xar-network/x/governors/keeper"
 	"time"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/xar-network/xar-network/x/bonds"
+	"github.com/xar-network/xar-network/x/governors/keeper"
 	"github.com/xar-network/xar-network/x/governors/types"
 )
 
