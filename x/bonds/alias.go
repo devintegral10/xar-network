@@ -13,29 +13,28 @@ import (
 )
 
 const (
-	DefaultCodespace                = types.DefaultCodespace
-	CodeInvalidDeposit              = types.CodeInvalidDeposit
-	CodeInvalidInput                = types.CodeInvalidInput
-	CodeInvalidAddress              = types.CodeInvalidAddress
-	CodeUnauthorized                = types.CodeUnauthorized
-	CodeInternal                    = types.CodeInternal
-	CodeUnknownRequest              = types.CodeUnknownRequest
-	EventTypeCompleteUnbonding      = types.EventTypeCompleteUnbonding
-	EventTypeBond                   = types.EventTypeBond
-	EventTypeUnbond                 = types.EventTypeUnbond
-	AttributeKeyCompletionTime      = types.AttributeKeyCompletionTime
-	AttributeKeyDepostior           = types.AttributeKeyDepostior
-	AttributeValueCategory          = types.AttributeValueCategory
-	ModuleName                      = types.ModuleName
-	StoreKey                        = types.StoreKey
-	QuerierRoute                    = types.QuerierRoute
-	RouterKey                       = types.RouterKey
-	QueryDepositorUnbondingDeposits = types.QueryDepositorUnbondingDeposits
-	QueryDeposit                    = types.QueryDeposit
-	QueryUnbondingDeposit           = types.QueryUnbondingDeposit
-	QueryPool                       = types.QueryPool
-	QueryParameters                 = types.QueryParameters
-	DefaultParamspace               = keeper.DefaultParamspace
+	DefaultCodespace           = types.DefaultCodespace
+	CodeInvalidDeposit         = types.CodeInvalidDeposit
+	CodeInvalidInput           = types.CodeInvalidInput
+	CodeInvalidAddress         = types.CodeInvalidAddress
+	CodeUnauthorized           = types.CodeUnauthorized
+	CodeInternal               = types.CodeInternal
+	CodeUnknownRequest         = types.CodeUnknownRequest
+	EventTypeCompleteUnbonding = types.EventTypeCompleteUnbonding
+	EventTypeBond              = types.EventTypeBond
+	EventTypeUnbond            = types.EventTypeUnbond
+	AttributeKeyCompletionTime = types.AttributeKeyCompletionTime
+	AttributeKeyDepostior      = types.AttributeKeyDepostior
+	AttributeValueCategory     = types.AttributeValueCategory
+	ModuleName                 = types.ModuleName
+	StoreKey                   = types.StoreKey
+	QuerierRoute               = types.QuerierRoute
+	RouterKey                  = types.RouterKey
+	QueryDeposit               = types.QueryDeposit
+	QueryUnbondingDeposit      = types.QueryUnbondingDeposit
+	QueryPool                  = types.QueryPool
+	QueryParameters            = types.QueryParameters
+	DefaultParamspace          = keeper.DefaultParamspace
 )
 
 var (

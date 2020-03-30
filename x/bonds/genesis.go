@@ -13,7 +13,7 @@ import (
 // Tt also sets any deposits found in
 // data.
 // Returns final deposits set
-func InitGenesis(ctx sdk.Context, keeper keeper.Keeper, accountKeeper types.AccountKeeper,
+func InitGenesis(ctx sdk.Context, keeper keeper.Keeper,
 	supplyKeeper types.SupplyKeeper, data types.GenesisState) (res []abci.ValidatorUpdate) {
 
 	bondedTokens := sdk.ZeroInt()

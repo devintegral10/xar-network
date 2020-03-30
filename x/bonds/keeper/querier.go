@@ -17,8 +17,6 @@ func NewQuerier(k Keeper) sdk.Querier {
 			return queryDeposit(ctx, req, k)
 		case types.QueryUnbondingDeposit:
 			return queryUnbondingDeposit(ctx, req, k)
-		case types.QueryDepositorUnbondingDeposits:
-			return queryDepositorUnbondingDeposits(ctx, req, k)
 		case types.QueryPool:
 			return queryPool(ctx, k)
 		case types.QueryParameters:
@@ -27,27 +25,6 @@ func NewQuerier(k Keeper) sdk.Querier {
 			return nil, sdk.ErrUnknownRequest("unknown query endpoint")
 		}
 	}
-}
-
-func queryDepositorUnbondingDeposits(ctx sdk.Context, req abci.RequestQuery, k Keeper) ([]byte, sdk.Error) {
-	var params types.QueryDepositorParams
-
-	err := types.ModuleCdc.UnmarshalJSON(req.Data, &params)
-	if err != nil {
-		return nil, sdk.ErrInternal(fmt.Sprintf("failed to parse params: %s", err))
-	}
-
-	unbondingDeposits := k.GetAllUnbondingDeposits(ctx, params.DepositorAddr)
-	if unbondingDeposits == nil {
-		unbondingDeposits = types.UnbondingDeposits{}
-	}
-
-	res, err := codec.MarshalJSONIndent(types.ModuleCdc, unbondingDeposits)
-	if err != nil {
-		return nil, sdk.ErrInternal(sdk.AppendMsgToErr("could not marshal result to JSON", err.Error()))
-	}
-
-	return res, nil
 }
 
 func queryDeposit(ctx sdk.Context, req abci.RequestQuery, k Keeper) ([]byte, sdk.Error) {

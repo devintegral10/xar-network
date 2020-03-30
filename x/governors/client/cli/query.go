@@ -28,7 +28,6 @@ func GetQueryCmd(queryRoute string, cdc *codec.Codec) *cobra.Command {
 	txQueryCmd.AddCommand(client.GetCommands(
 		GetCmdQueryDeposit(queryRoute, cdc),
 		GetCmdQueryUnbondingDeposit(queryRoute, cdc),
-		GetCmdQueryUnbondingDeposits(queryRoute, cdc),
 		GetCmdQueryParams(queryRoute, cdc),
 		GetCmdQueryPool(queryRoute, cdc))...)
 
@@ -121,51 +120,6 @@ $ %s query governors unbonding-deposit cosmos1gghjut3ccd8ay0zduzj64hwre2fxs9ld75
 			}
 
 			return cliCtx.PrintOutput(ubd)
-		},
-	}
-}
-
-// GetCmdQueryUnbondingDeposits implements the command to query all the
-// unbonding-deposit records for a depositor.
-func GetCmdQueryUnbondingDeposits(queryRoute string, cdc *codec.Codec) *cobra.Command {
-	return &cobra.Command{
-		Use:   "unbonding-deposits [depositor-addr]",
-		Short: "Query all unbonding-deposits records for one depositor",
-		Long: strings.TrimSpace(
-			fmt.Sprintf(`Query unbonding deposits for an individual depositor.
-
-Example:
-$ %s query governors unbonding-deposit cosmos1gghjut3ccd8ay0zduzj64hwre2fxs9ld75ru9p
-`,
-				version.ClientName,
-			),
-		),
-		Args: cobra.ExactArgs(1),
-		RunE: func(cmd *cobra.Command, args []string) error {
-			cliCtx := context.NewCLIContext().WithCodec(cdc)
-
-			depositorAddr, err := sdk.AccAddressFromBech32(args[0])
-			if err != nil {
-				return err
-			}
-
-			bz, err := cdc.MarshalJSON(bonds.NewQueryDepositorParams(depositorAddr))
-			if err != nil {
-				return err
-			}
-
-			route := fmt.Sprintf("custom/%s/%s", queryRoute, bonds.QueryDepositorUnbondingDeposits)
-			res, _, err := cliCtx.QueryWithData(route, bz)
-			if err != nil {
-				return err
-			}
-
-			var ubds bonds.UnbondingDeposits
-			if err = cdc.UnmarshalJSON(res, &ubds); err != nil {
-				return err
-			}
-
-			return cliCtx.PrintOutput(ubds)
 		},
 	}
 }

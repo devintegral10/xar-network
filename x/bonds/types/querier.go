@@ -6,11 +6,10 @@ import (
 
 // query endpoints supported by the Querier
 const (
-	QueryDepositorUnbondingDeposits = "depositorUnbondingDeposits"
-	QueryDeposit                    = "deposit"
-	QueryUnbondingDeposit           = "unbondingDeposit"
-	QueryPool                       = "pool"
-	QueryParameters                 = "parameters"
+	QueryDeposit          = "deposit"
+	QueryUnbondingDeposit = "unbondingDeposit"
+	QueryPool             = "pool"
+	QueryParameters       = "parameters"
 )
 
 // defines the params for the following queries:

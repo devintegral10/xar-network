@@ -149,7 +149,7 @@ func (am AppModule) NewQuerierHandler() sdk.Querier {
 func (am AppModule) InitGenesis(ctx sdk.Context, data json.RawMessage) []abci.ValidatorUpdate {
 	var genesisState types.GenesisState
 	types.ModuleCdc.MustUnmarshalJSON(data, &genesisState)
-	return InitGenesis(ctx, am.keeper, am.accountKeeper, am.supplyKeeper, genesisState)
+	return InitGenesis(ctx, am.keeper, am.supplyKeeper, genesisState)
 }
 
 // ExportGenesis returns the exported genesis state as raw bytes for the xar
