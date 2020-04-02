@@ -1,6 +1,8 @@
 package governors
 
 import (
+	"fmt"
+
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/xar-network/xar-network/x/bonds"
@@ -38,6 +40,20 @@ func ValidateGenesis(data types.GenesisState) error {
 	err := data.Params.Validate()
 	if err != nil {
 		return err
+	}
+	// check duplicate bonds
+	addrsSet := make(map[string]bool)
+	for _, deposit := range data.Bonds.Deposits {
+		if addrsSet[string(deposit.DepositorAddress)] {
+			return fmt.Errorf("duplicate genesis depositor")
+		}
+		addrsSet[string(deposit.DepositorAddress)] = true
+	}
+	// check zero bonds
+	for _, deposit := range data.Bonds.Deposits {
+		if deposit.Tokens.IsZero() {
+			return fmt.Errorf("zero genesis depositor")
+		}
 	}
 
 	return nil
