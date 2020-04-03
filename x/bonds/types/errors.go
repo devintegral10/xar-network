@@ -25,6 +25,10 @@ func ErrNilDepositorAddr(codespace sdk.CodespaceType) sdk.Error {
 	return sdk.NewError(codespace, CodeInvalidInput, "depositor address is nil")
 }
 
+func ErrZeroAmount(codespace sdk.CodespaceType) sdk.Error {
+	return sdk.NewError(codespace, CodeInvalidDeposit, "zero coin amount")
+}
+
 func ErrBadDenom(codespace sdk.CodespaceType) sdk.Error {
 	return sdk.NewError(codespace, CodeInvalidDeposit, "invalid coin denomination")
 }

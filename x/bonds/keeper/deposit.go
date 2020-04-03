@@ -195,7 +195,10 @@ func (k Keeper) DequeueAllMatureUBDQueue(ctx sdk.Context,
 // Perform a deposit, set/update everything necessary within the store.
 // tokenSrc indicates the bond status of the incoming funds.
 func (k Keeper) Bond(ctx sdk.Context, depAddr sdk.AccAddress, bondAmt sdk.Int, tokenSrc sdk.BondStatus,
-	subtractAccount bool) (newShares sdk.Dec, err sdk.Error) {
+	subtractAccount bool) (err sdk.Error) {
+	if bondAmt.IsZero() {
+		return types.ErrZeroAmount(k.Codespace())
+	}
 
 	// Get or create the deposit object
 	deposit, found := k.GetDeposit(ctx, depAddr)
@@ -221,7 +224,7 @@ func (k Keeper) Bond(ctx sdk.Context, depAddr sdk.AccAddress, bondAmt sdk.Int, t
 		coins := sdk.NewCoins(sdk.NewCoin(k.BondDenom(ctx), bondAmt))
 		err := k.supplyKeeper.DelegateCoinsFromAccountToModule(ctx, deposit.DepositorAddress, k.BondedPoolName(ctx), coins)
 		if err != nil {
-			return sdk.Dec{}, err
+			return err
 		}
 	} else {
 		// potentially transfer tokens between pools, if
@@ -238,11 +241,14 @@ func (k Keeper) Bond(ctx sdk.Context, depAddr sdk.AccAddress, bondAmt sdk.Int, t
 	// Call the after-modification hook
 	k.AfterDepositModified(ctx, deposit.DepositorAddress)
 
-	return newShares, nil
+	return nil
 }
 
 // unbond a particular deposit and perform associated store operations
 func (k Keeper) unbond(ctx sdk.Context, depAddr sdk.AccAddress, tokens sdk.Int) (err sdk.Error) {
+	if tokens.IsZero() {
+		return types.ErrZeroAmount(k.Codespace())
+	}
 
 	// check if a deposit object exists in the store
 	deposit, found := k.GetDeposit(ctx, depAddr)
